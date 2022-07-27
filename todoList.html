@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Todo | List</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="add-sect">
+            <h1 class="row">TO-DO LIST</h1>
+            <br><br>
+            <div class="row">
+                <form>
+                    <div class="input-group">
+                        <input type="text" id="box" placeholder="todo-item" style="width: 30vw">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="button" value="Add" style="width: 60px" onclick="add_item()">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <div class="todo-item">
+            <h3>Things To Do</h3>
+            <ul id="list_item"></ul>
+        </div>
+    </div>
+    </div>
+
+    <script type="text/javascript">
+        function add_item() {
+            let item = document.getElementById('box');
+            let list_item = document.getElementById('list_item');
+
+            if (item.value != "") {
+                let make_li = document.createElement("li");
+                make_li.appendChild(document.createTextNode(item.value));
+                list_item.appendChild(make_li);
+                item.value = "";
+
+                make_li.onclick = function () {
+                    this.parentNode.removeChild(this);
+                }
+            } else {
+                alert('please add a value to item')
+            }
+        }
+    </script>
+</body>
+
+</html>
